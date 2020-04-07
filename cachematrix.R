@@ -5,13 +5,13 @@
 
 makeCacheMatrix <- function(x = matrix()) 
 {
-  inverse <- NULL
+  inverse <- NULL   ## sets initial value to Null to reset
   set <- function(y)
   {
     x <<- y
-    inverse <<- NULL
+    inverse <<- NULL  ## make sure to reset from previous iterations
   }
-  inverse <<- solve(x)
+  inverse <<- solve(x)  ## caching the inverse matrix
 }
 
 
@@ -19,11 +19,11 @@ makeCacheMatrix <- function(x = matrix())
 
 cacheSolve <- function(x, ...) 
 {
-    if(!is.null(inverse))
+    if(!is.null(inverse))  ## check if theres something saved in inverse
     {
-      return(inverse)
+      return(inverse)  ## returns the inverse matrix
     }
-  solve(x)
+  solve(x)  ## solves for inverse matrix if no inverse
           ## Return a matrix that is the inverse of 'x'
   
 }
